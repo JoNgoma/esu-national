@@ -1,0 +1,47 @@
+<script setup>
+defineProps({
+  msg: {
+    type: String,
+    required: true,
+  },
+})
+</script>
+
+<template>
+  <nav class="navbar navbar-expand-lg navbar-light py-4" data-aos="fade-in">
+      <div class="container">
+        <button class="hamburger hamburger-squeeze hamburger-light d-flex d-lg-none" type="button"
+          data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+          aria-expanded="false" aria-label="Toggle navigation"><span class="hamburger-box"><span
+              class="hamburger-inner"></span></span></button>
+        <h1 style="display: flex; flex-direction: column;">
+          <a href="/index.html" style="text-decoration: none;">ESU</a>
+        </h1>
+        <a class="navbar-btn btn btn-subtle-primary ml-auto order-lg-2" href="/frontend/views/auth/login.html" target="_blank">Se
+          connecter</a>
+        <div class="navbar-collapse collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item mr-lg-3 active">
+              <a class="nav-link py-2" href="#">Home</a>
+            </li>
+            <li class="nav-item mr-lg-3">
+              <a class="nav-link py-2" href="#">Objectifs</a>
+            </li>
+            <li class="nav-item mr-lg-3">
+              <a class="nav-link py-2" href="#">Provinces</a>
+            </li>
+            <li class="nav-item mr-lg-3">
+              <a class="nav-link py-2" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</template>
+
+<style scoped>
+
+@media (min-width: 1024px) {
+
+}
+</style>
