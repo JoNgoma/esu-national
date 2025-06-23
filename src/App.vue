@@ -1,17 +1,10 @@
 <script setup>
-// import HelloWorld from './components/HelloWorld.vue'
-// import TheWelcome from './components/TheWelcome.vue'
-import HomePage from './pages/HomePage.vue';
-import HeaderHome from './partials/HeaderHome.vue';
+// import HeaderHome from './partials/HeaderHome.vue';
 </script>
 
 <template>
-  <header>
-    <HeaderHome />
-  </header>
-
   <main>
-    <HomePage/>
+    <router-view />
   </main>
 </template>
 

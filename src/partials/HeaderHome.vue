@@ -15,10 +15,9 @@ defineProps({
           aria-expanded="false" aria-label="Toggle navigation"><span class="hamburger-box"><span
               class="hamburger-inner"></span></span></button>
         <h1 style="display: flex; flex-direction: column;">
-          <a href="/index.html" style="text-decoration: none;">ESU</a>
+          <router-link to="/" style="text-decoration: none;">ESU</router-link>
         </h1>
-        <a class="navbar-btn btn btn-subtle-primary ml-auto order-lg-2" href="/frontend/views/auth/login.html" target="_blank">Se
-          connecter</a>
+        <router-link class="navbar-btn btn btn-subtle-primary ml-auto order-lg-2" to="/sign-in">Se connecter</router-link>
         <div class="navbar-collapse collapse" id="navbarTogglerDemo01">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item mr-lg-3 active">

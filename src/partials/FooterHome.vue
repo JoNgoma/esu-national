@@ -9,18 +9,14 @@ defineProps({
 
 <template>
   <section id="Footer" class="py-5 bg-black text-white">
-      <!-- .container -->
       <div class="container">
-        <!-- .row -->
         <div class="row">
-          <!-- .col -->
           <div class="col-12 col-md-4 col-lg-3">
-            <!-- Brand -->
             <p>Enseignement Supérieur et Universitaire (ESU)</p>
             <p class="text-muted mb-2"> The theme for your project. </p>
             <address class="text-muted">
               <abbr title="US phone code">+1</abbr> (234) 567-8910
-            </address><!-- Social -->
+            </address>
             <ul class="list-inline mb-5 mb-md-0">
               <li class="list-inline-item mr-3" data-aos="fade-in" data-aos-delay="0">
                 <a href="#" class="text-muted text-decoration-none" title="twitter"><img class="grayscale"
@@ -39,11 +35,9 @@ defineProps({
                     src="/src/assets/images/avatars/medium.svg" alt="" width="24"></a>
               </li>
             </ul>
-          </div><!-- /.col -->
-          <!-- .col -->
+          </div>
           <div class="col-6 col-md-4 col-lg-2 mb-3 mb-md-0">
-            <!-- Heading -->
-            <h6 class="mb-4"> Company </h6><!-- links -->
+            <h6 class="mb-4"> Company </h6>
             <ul class="list-unstyled">
               <li class="mb-3">
                 <a href="#" class="text-muted">About Us</a>
@@ -58,11 +52,9 @@ defineProps({
                 <a href="#" class="text-muted">Press</a>
               </li>
             </ul>
-          </div><!-- /.col -->
-          <!-- .col -->
+          </div>
           <div class="col-6 col-md-4 col-lg-2 mb-3 mb-md-0">
-            <!-- Heading -->
-            <h6 class="mb-4"> Product </h6><!-- links -->
+            <h6 class="mb-4"> Product </h6>
             <ul class="list-unstyled">
               <li class="mb-3">
                 <a href="#" class="text-muted">SaaS</a>
@@ -80,11 +72,9 @@ defineProps({
                 <a href="#" class="text-muted">CMS</a>
               </li>
             </ul>
-          </div><!-- /.col -->
-          <!-- .col -->
+          </div>
           <div class="col-6 col-md-4 col-lg-2 mb-3 mb-md-0">
-            <!-- Heading -->
-            <h6 class="mb-4"> Help </h6><!-- links -->
+            <h6 class="mb-4"> Help </h6>
             <ul class="list-unstyled">
               <li class="mb-3">
                 <a href="#" class="text-muted">Help Center</a>
@@ -99,11 +89,9 @@ defineProps({
                 <a href="#" class="text-muted">FAQ</a>
               </li>
             </ul>
-          </div><!-- /.col -->
-          <!-- .col -->
+          </div>
           <div class="col-6 col-md-4 col-lg-2 mb-3 mb-md-0">
-            <!-- Heading -->
-            <h6 class="mb-4"> Legal </h6><!-- links -->
+            <h6 class="mb-4"> Legal </h6>
             <ul class="list-unstyled">
               <li class="mb-3">
                 <a href="#" class="text-muted">Privacy Policy</a>
@@ -115,11 +103,11 @@ defineProps({
                 <a href="#" class="text-muted">Cookies Policy</a>
               </li>
             </ul>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-        <p class="text-muted text-center mt-5"> © 2020 Looper, Inc. All rights reserved. </p>
-      </div><!-- /.container -->
-    </section><!-- /footer -->
+          </div>
+        </div>
+        <p class="text-muted text-center mt-5"> © 2025 Beyin LazQuir.</p>
+      </div>
+    </section>
 </template>
 
 <style scoped>
