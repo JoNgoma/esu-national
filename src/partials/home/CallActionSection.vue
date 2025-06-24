@@ -24,7 +24,7 @@ defineProps({
           data-aos="fade-up">
           <div class="sticker">
             <div class="sticker-item sticker-middle-left">
-              <img class="flip-y" src="/src/assets/images/decoration/bubble4.svg" alt="">
+              <img class="flip-y" src="/assets/images/decoration/bubble4.svg" alt="">
             </div>
           </div>
           <div class="card-body d-md-flex justify-content-between align-items-center text-center position-relative">

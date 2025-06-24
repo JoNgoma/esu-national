@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="text-end  pt-3">
-                <a href="/frontend/views/auth/forget-pwd.html" class="link">Mot de passe oublié?</a>
+                <router-link to="/forget-pwd" class="link">Mot de passe oublié?</router-link>
             </div>
         </form>
 

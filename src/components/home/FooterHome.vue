@@ -20,19 +20,19 @@ defineProps({
             <ul class="list-inline mb-5 mb-md-0">
               <li class="list-inline-item mr-3" data-aos="fade-in" data-aos-delay="0">
                 <a href="#" class="text-muted text-decoration-none" title="twitter"><img class="grayscale"
-                    src="/src/assets/images/avatars/twitter.svg" alt="" width="24"></a>
+                    src="/assets/images/avatars/twitter.svg" alt="" width="24"></a>
               </li>
               <li class="list-inline-item mr-3" data-aos="fade-in" data-aos-delay="100">
                 <a href="#" class="text-muted text-decoration-none" title="instagram"><img class="grayscale"
-                    src="/src/assets/images/avatars/instagram.svg" alt="" width="24"></a>
+                    src="/assets/images/avatars/instagram.svg" alt="" width="24"></a>
               </li>
               <li class="list-inline-item mr-3" data-aos="fade-in" data-aos-delay="200">
                 <a href="#" class="text-muted text-decoration-none" title="dribbble"><img class="grayscale"
-                    src="/src/assets/images/avatars/dribbble.svg" alt="" width="24"></a>
+                    src="/assets/images/avatars/dribbble.svg" alt="" width="24"></a>
               </li>
               <li class="list-inline-item mr-3" data-aos="fade-in" data-aos-delay="300">
                 <a href="#" class="text-muted text-decoration-none" title="medium"><img class="grayscale"
-                    src="/src/assets/images/avatars/medium.svg" alt="" width="24"></a>
+                    src="/assets/images/avatars/medium.svg" alt="" width="24"></a>
               </li>
             </ul>
           </div>

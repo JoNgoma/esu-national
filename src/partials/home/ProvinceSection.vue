@@ -11,10 +11,10 @@ defineProps({
   <section class="position-relative pb-5 bg-light">
       <div class="sticker">
         <div class="sticker-item sticker-top-right sticker-soften">
-          <img src="/src/assets/images/decoration/cubes.svg" alt="" data-aos="zoom-in">
+          <img src="/assets/images/decoration/cubes.svg" alt="" data-aos="zoom-in">
         </div>
         <div class="sticker-item sticker-bottom-left sticker-soften scale-150">
-          <img src="/src/assets/images/decoration/cubes.svg" alt="" data-aos="zoom-in">
+          <img src="/assets/images/decoration/cubes.svg" alt="" data-aos="zoom-in">
         </div>
       </div>
       <div class="container position-relative">
@@ -27,7 +27,7 @@ defineProps({
 
             <div class="card-body p-4">
               <div class="d-sm-flex align-items-start text-center text-sm-left">
-                <img src="/src/assets/images/illustration/rocket.svg" class="mr-sm-4 mb-3 mb-sm-0" alt="" width="72">
+                <img src="/assets/images/illustration/rocket.svg" class="mr-sm-4 mb-3 mb-sm-0" alt="" width="72">
                 <div class="flex-fill">
                   <h5 class="mt-0"> Ready-to-go </h5>
                   <p class="text-muted font-size-lg"> Provides a tons of useful Components and Pages that allow you to
@@ -39,7 +39,7 @@ defineProps({
           <div class="card shadow" data-aos="fade-up" data-aos-delay="100">
             <div class="card-body p-4">
               <div class="d-sm-flex align-items-start text-center text-sm-left">
-                <img src="/src/assets/images/illustration/setting.svg" class="mr-sm-4 mb-3 mb-sm-0" alt="" width="72">
+                <img src="/assets/images/illustration/setting.svg" class="mr-sm-4 mb-3 mb-sm-0" alt="" width="72">
                 <div class="flex-fill">
                   <h5 class="mt-0"> Highly functionality </h5>
                   <p class="text-muted font-size-lg"> Looper is not 1001 in 1 shit theme, there's not an obscene amount
@@ -53,7 +53,7 @@ defineProps({
           <div class="card shadow" data-aos="fade-up" data-aos-delay="200">
             <div class="card-body p-4">
               <div class="d-sm-flex align-items-start text-center text-sm-left">
-                <img src="/src/assets/images/illustration/brain.svg" class="mr-sm-4 mb-3 mb-sm-0" alt="" width="72">
+                <img src="/assets/images/illustration/brain.svg" class="mr-sm-4 mb-3 mb-sm-0" alt="" width="72">
                 <div class="flex-fill">
                   <h5 class="mt-0"> Boost your creativity </h5>
                   <p class="text-muted font-size-lg"> The design is clean, simple, modern, and essential, with Lots of
@@ -65,7 +65,7 @@ defineProps({
           <div class="card shadow" data-aos="fade-up" data-aos-delay="300">
             <div class="card-body p-4">
               <div class="d-sm-flex align-items-start text-center text-sm-left">
-                <img src="/src/assets/images/illustration/horse.svg" class="mr-sm-4 mb-3 mb-sm-0" alt="" width="72">
+                <img src="/assets/images/illustration/horse.svg" class="mr-sm-4 mb-3 mb-sm-0" alt="" width="72">
                 <div class="flex-fill">
                   <h5 class="mt-0"> Simple workflow </h5>
                   <p class="text-muted font-size-lg"> We make sure you can make a magic by running just two command. It
@@ -79,7 +79,7 @@ defineProps({
           <div class="card shadow" data-aos="fade-up" data-aos-delay="400">
             <div class="card-body p-4">
               <div class="d-sm-flex align-items-start text-center text-sm-left">
-                <img src="/src/assets/images/illustration/savings.svg" class="mr-sm-4 mb-3 mb-sm-0" alt="" width="72">
+                <img src="/assets/images/illustration/savings.svg" class="mr-sm-4 mb-3 mb-sm-0" alt="" width="72">
                 <div class="flex-fill">
                   <h5 class="mt-0"> One time payment </h5>
                   <p class="text-muted font-size-lg"> After you make a purchase you will get a free update forever. We
@@ -91,7 +91,7 @@ defineProps({
           <div class="card shadow" data-aos="fade-up" data-aos-delay="500">
             <div class="card-body p-4">
               <div class="d-sm-flex align-items-start text-center text-sm-left">
-                <img src="/src/assets/images/illustration/document.svg" class="mr-sm-4 mb-3 mb-sm-0" alt="" width="72">
+                <img src="/assets/images/illustration/document.svg" class="mr-sm-4 mb-3 mb-sm-0" alt="" width="72">
                 <div class="flex-fill">
                   <h5 class="mt-0"> Well Documented </h5>
                   <p class="text-muted font-size-lg"> Each component is well explained with example, code block and best

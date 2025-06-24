@@ -12,7 +12,7 @@ defineProps({
       <div class="container">
         <div class="row align-items-center">
           <div class="col-12 col-md-6" data-aos="fade-right">
-            <img class="img-fluid mb-4 mb-md-0" src="/src/assets/images/illustration/solution.svg" alt="">
+            <img class="img-fluid mb-4 mb-md-0" src="/assets/images/illustration/solution.svg" alt="">
           </div>
           <div class="col-12 col-md-6 text-center text-sm-left">
             <h3 class="mb-4">Nous en faisons un peu plus</h3>
