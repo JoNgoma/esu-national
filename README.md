@@ -1,35 +1,87 @@
-# esu-national
+# 🎓 ESU National - Application Web de Gestion Académique
 
-This template should help get you started developing with Vue 3 in Vite.
+**ESU National** est une application web moderne conçue pour digitaliser les processus liés à l’**Enseignement Supérieur et Universitaire** (ESU) en République Démocratique du Congo. Elle fournit un portail fluide, sûr et intuitif permettant aux étudiants, enseignants et responsables académiques d'accéder et de gérer les informations essentielles du secteur.
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🚀 Fonctionnalités principales
 
-## Customize configuration
+* ✅ Authentification (connexion / inscription)
+* ✅ Gestion et consultation des établissements reconnus en RDC
+* ✅ Accès aux filières, cycles et suivis des divers étudiants
+* ✅ Tableau de bord personnalisé pour les contrôleurs
+* ✅ Système responsive adapté à tous les écrans
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## 🧱 Stack technique
 
-```sh
+| Technologie  | Rôle                               |
+| ------------ | ---------------------------------- |
+| Vue.js 3     | Framework principal (SPA)          |
+| Vue Router   | Gestion des routes front-end       |
+| Bootstrap | Design rapide et réactif           |
+| Vite         | Build & développement ultra-rapide |
+
+> Backend : pensé pour être connecté avec une API REST (Laravel, AdonisJS, etc.)
+> IndexedDb : pensé pour continuer les enregistrment même hors connexion
+> PWA : pensé pour tourner sur PC hors navigateur
+---
+
+
+## ⚙️ Installation locale
+
+```bash
+# 1. Cloner le dépôt
+git clone https://github.com/JoNgoma/esu-national.git
+cd esu-national
+
+# 2. Installer les dépendances
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# 3. Lancer le serveur de développement
 npm run dev
+
+# Le projet sera disponible sur http://localhost:5173
 ```
 
-### Compile and Minify for Production
+---
 
-```sh
-npm run build
+## 📁 Structure du projet (simplifiée)
+
+```
+esu-national/
+├── public/
+│   └── assets/         # Images, icônes, fichiers statiques
+├── src/
+│   ├── components/     # Composants Vue réutilisables
+│   ├── pages/          # Pages principales (Home, Login...)
+│   ├── router/         # Définition des routes
+│   └── main.js         # Entrée de l'application
+├── index.html          # Point d’entrée (avec balises head)
+└── package.json
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+---
 
-```sh
-npm run lint
-```
+## 📌 Objectifs du projet
+
+* Moderniser la gestion de l’ESU en RDC
+* Rendre les processus académiques plus accessibles et transparents
+* Offrir une solution nationale, modulaire et évolutive
+
+---
+
+## 👨‍💻 Auteur
+
+**Josué Ngoma**
+Développeur Web passionné par la modernisation du secteur public via des outils numériques performants.
+
+---
+
+## 📄 Licence
+
+Ce projet est open-source sous licence MIT. Vous pouvez l'utiliser, le modifier et le déployer librement.
+
+---
+
