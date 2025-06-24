@@ -79,9 +79,3 @@ Développeur Web passionné par la modernisation du secteur public via des outil
 
 ---
 
-## 📄 Licence
-
-Ce projet est open-source sous licence MIT. Vous pouvez l'utiliser, le modifier et le déployer librement.
-
----
-
