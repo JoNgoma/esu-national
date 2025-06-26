@@ -6,7 +6,10 @@ import ForgetPwdPage from '@/pages/auth/ForgetPwdPage.vue'
 import AccueilPage from '@/pages/dashboard/AccueilPage.vue'
 import DashboardPage from '@/pages/DashboardPage.vue'
 import CollectionsPage from '@/pages/dashboard/CollectionsPage.vue'
-import FomulairePage from '@/pages/dashboard/FomulairePage.vue'
+import FormUnivPage from '@/pages/dashboard/forms/FormUnivPage.vue'
+import FormDepFilPage from '@/pages/dashboard/forms/FormDepFilPage.vue'
+import FormFacDomPage from '@/pages/dashboard/forms/FormFacDomPage.vue'
+import FormSystEdPage from '@/pages/dashboard/forms/FormSystEdPage.vue'
 
 const routes = [
   {
@@ -32,6 +35,7 @@ const routes = [
   {
     path: '/dashboard',
     component: DashboardPage,
+    meta: { requiresAuth: true },
     children: [
       {
         path: '',
@@ -40,14 +44,34 @@ const routes = [
       },
       {
         path: 'forms',
-        name: 'formulaire',
-        component: FomulairePage
+        children: [
+          {
+            path: 'new-univ',
+            name: 'new-univ',
+            component: FormUnivPage
+          },
+          {
+            path: 'new-education',
+            name: 'new-education',
+            component: FormSystEdPage
+          },
+          {
+            path: 'new-fac-dom',
+            name: 'new-fac-dom',
+            component: FormFacDomPage
+          },
+          {
+            path: 'new-dep-fil',
+            name: 'new-dep-fil',
+            component: FormDepFilPage
+          }
+        ]
       },
       {
         path: 'collections',
         name: 'colllections',
         component: CollectionsPage
-      },
+      }
     ]
   }
 ]
@@ -55,6 +79,18 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+// 🧱 Vérification du token avant chaque navigation
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = !!localStorage.getItem('token')
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+
+  if (requiresAuth && !isAuthenticated) {
+    return next({ name: 'Login' }) // ou '/sign-in'
+  }
+
+  next()
 })
 
 export default router

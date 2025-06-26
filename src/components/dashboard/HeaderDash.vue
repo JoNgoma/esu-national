@@ -1,4 +1,16 @@
 <script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+function logout() {
+  // 1. Supprimer le token JWT ou les infos utilisateur
+  localStorage.removeItem('token') // ou tout autre clé utilisée
+
+  // 2. Redirection vers la page de connexion
+  router.push('/sign-in')
+}
+
 defineProps({
   msg: {
     type: String,
@@ -46,9 +58,10 @@ defineProps({
                 <div class="dropdown-arrow d-lg-none" x-arrow=""></div>
                 <div class="dropdown-arrow ml-3 d-none d-lg-block"></div>
                 <h6 class="dropdown-header d-none d-md-block d-lg-none">Josué Ngoma</h6><router-link class="dropdown-item"
-                  to="/profile"><span class="dropdown-icon oi oi-person"></span> Profile</router-link> <router-link
-                  class="dropdown-item" to="/sign-in"><span
-                    class="dropdown-icon oi oi-account-logout"></span> Deconnexion</router-link>
+                  to="/profile"><span class="dropdown-icon oi oi-person"></span> Profile</router-link>
+                  <button class="dropdown-item" @click="logout">
+                    <span class="dropdown-icon oi oi-account-logout"></span> Déconnexion
+                  </button>
                 <div class="dropdown-divider"></div><router-link class="dropdown-item" to="#">Aide</router-link>
               </div>
             </div>

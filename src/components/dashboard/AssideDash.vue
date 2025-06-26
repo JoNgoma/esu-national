@@ -34,7 +34,7 @@ function toggleTheme() {
     }
   }
   // Force le re-rendu si nécessaire, bien que le changement de CSS devrait suffire
-  // window.location.reload();
+  window.location.reload();
 }
 </script>
 
@@ -46,7 +46,7 @@ function toggleTheme() {
               class="user-avatar user-avatar-lg"><img src="/assets/images/avatars/profile.jpg" alt=""></span> <span
               class="account-icon"><span class="fa fa-caret-down fa-lg"></span></span> <span
               class="account-summary"><span class="account-name">Josué Ngoma</span> <span
-                class="account-description">DévéloppeurWeb</span></span></button> 
+                class="account-description">DévéloppeurWeb</span></span></button>
           <div id="dropdown-aside" class="dropdown-aside collapse">
             <div class="pb-3">
               <a class="dropdown-item" href="user-profile.html"><span class="dropdown-icon oi oi-person"></span>
@@ -62,12 +62,26 @@ function toggleTheme() {
           <nav id="stacked-menu" class="stacked-menu">
             <ul class="menu">
               <li class="menu-item">
-                <router-link to="/dashboard" class="menu-link"><span class="menu-icon fas fa-home"></span>
+                <router-link :to="{name : 'dashboard'}" class="menu-link"><span class="menu-icon fas fa-home"></span>
                   <span class="menu-text">Dashboard</span></router-link>
               </li>
-              <li class="menu-item">
-                <router-link to="/dashboard/forms" class="menu-link"><span class="menu-icon oi oi-pencil"></span>
-                  <span class="menu-text">Formulaire</span></router-link>
+              <li class="menu-item has-child">
+                <router-link to="" class="menu-link"><span class="menu-icon oi oi-pencil"></span> <span
+                    class="menu-text">Formulaire</span></router-link>
+                <ul class="menu">
+                  <li class="menu-item">
+                    <router-link :to="{ name: 'new-univ' }" class="menu-link">Nouvelle université</router-link>
+                  </li>
+                  <li class="menu-item">
+                    <router-link :to="{name : 'new-education'}" class="menu-link">Système éducatif</router-link>
+                  </li>
+                  <li class="menu-item">
+                    <router-link :to="{ name: 'new-fac-dom' }" class="menu-link">Faculté (Domaine)</router-link>
+                  </li>
+                  <li class="menu-item">
+                    <router-link :to="{ name: 'new-dep-fil' }" class="menu-link">Département (Filière)</router-link>
+                  </li>
+                </ul>
               </li>
               <li class="menu-item">
                 <router-link to="/dashboard/collections" class="menu-link"><span
@@ -78,7 +92,7 @@ function toggleTheme() {
 
               <li class="menu-item has-child">
                 <a href="#" class="menu-link"><span class="menu-icon oi oi-person"></span> <span
-                    class="menu-text">User</span></a> <!-- child menu -->
+                    class="menu-text">User</span></a>
                 <ul class="menu">
                   <li class="menu-item">
                     <a href="user-profile.html" class="menu-link">Profile</a>
@@ -108,6 +122,10 @@ function toggleTheme() {
 </template>
 
 <style scoped>
+.router-link-exact-active .menu-icon, 
+.router-link-exact-active .menu-text {
+  color: #007bff; 
+}
 
 @media (min-width: 1024px) {
 

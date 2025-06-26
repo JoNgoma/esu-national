@@ -41,7 +41,10 @@
         </div>
         
         <div class="form-group">
-          <button class="btn btn-lg btn-primary btn-block" type="submit">S'inscrire</button>
+          <button class="btn btn-lg btn-primary btn-block" type="submit" :disabled="isLoading">
+            <span v-if="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span v-else>S'inscrire</span>
+          </button>
         </div>
         
         <div class="form-group">
@@ -63,13 +66,27 @@ const inputUsername = ref('');
 const inputEmail = ref('');
 const inputNumber = ref('');
 const inputPassword = ref('');
+const error = ref('')
+// Loading
+const isLoading = ref(false)
 
 function handleLogup() {
+  // loading
+  isLoading.value = true
   // Logique de connexion ici
-  console.log("Nom d'utilisateur:", inputUsername.value);
+  try {
+    console.log("Nom d'utilisateur:", inputUsername.value);
   console.log("Email", inputEmail.value);
   console.log("Numéro de téléphone", inputNumber.value);
   console.log("Mot de passe:", inputPassword.value);
+  } catch (err) {
+      error.value = 'Connexion échouée. Vérifiez vos identifiants.'
+      console.error(err)
+    } 
+    // loading
+    finally {
+      isLoading.value = false
+    }
 }
 defineProps({
   msg: {

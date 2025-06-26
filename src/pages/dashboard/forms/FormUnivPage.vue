@@ -7,11 +7,11 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item active">
-                    <a href="#"><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</a>
+                    <router-link :to="{name : 'dashboard'}"><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</router-link>
                   </li>
                 </ol>
               </nav>
-              <h1 class="page-title">Formunlaire fiche de scolarité</h1>
+              <h1 class="page-title">Nouvelle Université</h1>
             </header>
             <div class="page-section">
               <div class="d-xl-none">
@@ -23,30 +23,29 @@
                   <form>
                       <legend>Système Educatif</legend> 
                       <div class="form-group">
-                        <label class="d-block">choisissez le système éducatif pour lequel vous voulez compléter la
-                          fiche</label>
-                        <div class="custom-control custom-control-inline custom-radio">
-                          <input type="radio" class="custom-control-input" name="rdGroup1" id="rd1"> <label
-                            class="custom-control-label" for="rd1">LMD</label>
-                        </div>
-                        <div class="custom-control custom-control-inline custom-radio">
-                          <input type="radio" class="custom-control-input" name="rdGroup1" id="rd2"> <label
-                            class="custom-control-label" for="rd2">PADEM</label>
-                        </div>
-                        <div class="custom-control custom-control-inline custom-radio">
+                        <label class="d-block">Choisissez le système éducatif existant dans cette université</label>
+                          <div class="custom-control custom-checkbox mb-1">
+                            <input type="checkbox" class="custom-control-input" id="ckb8"> <label class="custom-control-label" for="ckb8">LMD</label>
+                            <div class="text-muted">Description du système LMD</div>
+                          </div>
+                          <div class="custom-control custom-checkbox mb-1">
+                            <input type="checkbox" class="custom-control-input" id="ckb9"> <label class="custom-control-label" for="ckb9">PADEM</label>
+                            <div class="text-muted">Description du système PADEM</div>
+                          </div>
+                        <!-- <div class="custom-control custom-control-inline custom-radio">
                           <input type="radio" class="custom-control-input" name="rdGroup1" id="rd3" checked> <label
                             class="custom-control-label" for="rd3">Autres</label>
-                        </div>
+                        </div> -->
                       </div>
                       <div id="floating-label" class="card">
                         <div class="card-body">
                           <form>
                             <fieldset>
-                              <legend>Localisation</legend> 
+                              <legend>Coordonnées de l'établissement</legend> 
                               <div class="form-group">
                                 <div class="form-label-group">
                                   <input type="text" class="form-control" id="fl1" value="" placeholder="Email address"
-                                    required=""> <label for="fl1">Etablissement</label>
+                                    required=""> <label for="fl1">Nom de l'Etablissement</label>
                                 </div>
                               </div>
                               <div class="form-group">
@@ -94,7 +93,7 @@
                         <div class="card-body border-top">
                           <form>
                             <fieldset>
-                              <legend>Coordonnées de l'établisseùent</legend> 
+                              <legend></legend> 
                               <div class="form-group">
                                 <div class="form-label-group">
                                   <input type="number" class="form-control" id="fl2" placeholder="" required=""> <label
@@ -107,16 +106,13 @@
                           </form>
                         </div>
                       </div>
-                      <div class="form-actions">
-                        <button class="btn btn-primary" type="submit">Soumettre</button>
-                      </div>
+                      <div class="form-actions d-flex justify-content-end">
+                    <button class="btn btn-primary me-3" type="submit">Soumettre</button>
+                  </div>
                   </form>
                 </div>
               </div>
             </div>
-            <footer class="app-footer">
-              <div class="copyright">© 2025 Beyin LazQuir.</div>
-            </footer>
           </div>
           <div class="page-sidebar page-sidebar-fixed">
             <header class="sidebar-header d-xl-none">
@@ -128,10 +124,10 @@
               </ol>
             </header>
             <nav id="nav-content" class="nav flex-column mt-4">
-              <a href="#base-style" class="nav-link smooth-scroll">Système éducatif</a> 
-              <a href="#labels" class="nav-link smooth-scroll">Domaine</a> 
+              <a href="#base-style" class="nav-link smooth-scroll">Ajouter une Université</a> 
+              <!-- <a href="#labels" class="nav-link smooth-scroll">Domaine</a> 
               <a href="#floating-label" class="nav-link smooth-scroll">Fiche proprement dite</a>
-              <a href="#selects" class="nav-link smooth-scroll">Avis</a> 
+              <a href="#selects" class="nav-link smooth-scroll">Avis</a>  -->
               <!-- <a href="#checkboxes" class="nav-link smooth-scroll">Checkboxes</a> 
               <a href="#radios" class="nav-link smooth-scroll">Radios</a>  -->
             </nav>
