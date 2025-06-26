@@ -10,6 +10,10 @@ import FormUnivPage from '@/pages/dashboard/forms/FormUnivPage.vue'
 import FormDepFilPage from '@/pages/dashboard/forms/FormDepFilPage.vue'
 import FormFacDomPage from '@/pages/dashboard/forms/FormFacDomPage.vue'
 import FormSystEdPage from '@/pages/dashboard/forms/FormSystEdPage.vue'
+import FormPromoPage from '@/pages/dashboard/forms/FormPromoPage.vue'
+import FormMentionPage from '@/pages/dashboard/forms/FormMentionPage.vue'
+import FormDiplomePage from '@/pages/dashboard/forms/FormDiplomePage.vue'
+import FormFichePage from '@/pages/dashboard/forms/FormFichePage.vue'
 
 const routes = [
   {
@@ -43,6 +47,7 @@ const routes = [
         component: AccueilPage
       },
       {
+        // name: 'forms',
         path: 'forms',
         children: [
           {
@@ -61,9 +66,29 @@ const routes = [
             component: FormFacDomPage
           },
           {
-            path: 'new-dep-fil',
+            path: 'new-depart-fil',
             name: 'new-dep-fil',
             component: FormDepFilPage
+          },
+          {
+            path: 'new-advancement',
+            name: 'new-advancement',
+            component: FormPromoPage
+          },
+          {
+            path: 'new-mention',
+            name: 'new-mention',
+            component: FormMentionPage
+          },
+          {
+            path: 'new-certificate',
+            name: 'new-certificate',
+            component: FormDiplomePage
+          },
+          {
+            path: 'new-stake',
+            name: 'new-stake',
+            component: FormFichePage
           }
         ]
       },

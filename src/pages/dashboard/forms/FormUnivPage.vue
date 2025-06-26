@@ -39,7 +39,6 @@
                       </div>
                       <div id="floating-label" class="card">
                         <div class="card-body">
-                          <form>
                             <fieldset>
                               <legend>Coordonnées de l'établissement</legend> 
                               <div class="form-group">
@@ -88,10 +87,8 @@
                                 </div>
                               </div> 
                             </fieldset>
-                          </form>
                         </div>
                         <div class="card-body border-top">
-                          <form>
                             <fieldset>
                               <legend></legend> 
                               <div class="form-group">
@@ -103,7 +100,6 @@
                               <div class="form-group">
                               </div>
                             </fieldset>
-                          </form>
                         </div>
                       </div>
                       <div class="form-actions d-flex justify-content-end">

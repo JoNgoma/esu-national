@@ -13,7 +13,7 @@
                 </li>
               </ol>
             </nav>
-            <h1 class="page-title">Département (Filière)</h1>
+            <h1 class="page-title">Nouvelle Fiche</h1>
           </header>
           <div class="page-section">
             <div class="d-xl-none">
@@ -24,7 +24,7 @@
             <div id="base-style" class="card">
               <div class="card-body">
                 <form>
-                  <legend>Ajouter un Département (Filière)</legend>
+                  <legend>Système Educatif</legend>
                   <div class="form-group">
                     <label class="d-block">Choisissez le système éducatif attendu</label>
                     <div class="custom-control custom-control-inline custom-radio">
@@ -58,10 +58,70 @@
                             <div class="text-muted">Description du système PADEM</div>
                           </div> -->
                   </div>
-
                   <div id="floating-label" class="card">
                     <div class="card-body">
                       <fieldset>
+                        <legend>Coordonnées de l'établissement</legend>
+                        <div class="form-group">
+                          <div class="form-label-group">
+                            <select class="custom-select" id="fls1" required="">
+                              <option value="">Selectionner...</option>
+                              <option>Kinshasa</option>
+                              <option>Kongo Central</option>
+                              <option>Kwango</option>
+                              <option>Kwilu</option>
+                              <option>Maï-Ndombe</option>
+                              <option>Equateur</option>
+                              <option>Sud-Ubangi</option>
+                              <option>Nord-Ubangi</option>
+                              <option>Mongala</option>
+                              <option>Tshuapa</option>
+                              <option>Tshopo</option>
+                              <option>Haut-Uele</option>
+                              <option>Bas-Uele</option>
+                              <option>Ituri</option>
+                              <option>Nord-Kivu</option>
+                              <option>Sud-Kivu</option>
+                              <option>Maniema</option>
+                              <option>Haut-Katanga</option>
+                              <option>Lualaba</option>
+                              <option>Haut-Lomami</option>
+                              <option>Tanganyika</option>
+                              <option>Lomami</option>
+                              <option>Kasaï-Oriental</option>
+                              <option>Sankuru</option>
+                              <option>Kasaï-Central</option>
+                              <option>Kasaï</option>
+                            </select>
+                            <label for="fls1">Provinces</label>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="form-label-group">
+                            <select class="custom-select" id="fls1" required="">
+                              <option value="">Sélectionner une université...</option>
+                              <option>Université de Kinshasa (UNIKIN)</option>
+                              <option>Université Pédagogique Nationale (UPN)</option>
+                              <option>Université Protestante au Congo (UPC)</option>
+                              <option>Université Catholique du Congo (UCC)</option>
+                              <option>Université de Lubumbashi (UNILU)</option>
+                              <option>Université Kongo (UK)</option>
+                              <option>Université de Kisangani (UNIKIS)</option>
+                              <option>Université de Mbuji-Mayi (UM)</option>
+                              <option>Université de Goma (UNIGOM)</option>
+                              <option>Université Officielle de Bukavu (UOB)</option>
+                              <option>Université de Kolwezi (UNIKOL)</option>
+                              <option>Université de Kindu (UNIKI)</option>
+                              <option>Université de Bandundu (UB)</option>
+                              <option>Université Simon Kimbangu (USK)</option>
+                              <option>Université Notre-Dame du Kasayi (UKA)</option>
+                              <option>Université Libre de Kinshasa (ULK)</option>
+                              <option>Université Adventiste de Lukanga (UNILUK)</option>
+                            </select>
+                            <label for="fls1">Universités de la RDC</label>
+                          </div>
+                        </div>
+
                         <div class="form-group">
                           <div class="form-label-group">
                             <select class="custom-select" id="fls1" required>
@@ -90,23 +150,36 @@
                         <div class="form-group">
                           <div class="form-label-group">
                             <input
-                              type="text"
+                              type="number"
                               class="form-control"
-                              id="fl1"
-                              value=""
+                              id="fl2"
                               placeholder=""
                               required=""
                             />
-                            <label for="fl1">{{ labelNamedepFil }}</label>
+                            <label for="fl2">Nom du Département (Filière)</label>
                           </div>
                         </div>
                       </fieldset>
                     </div>
                     <div class="card-body border-top">
                       <fieldset>
+                        <legend>Coordonnés de l'étudiant</legend>
+                        <div class="form-group">
+                          <div class="form-label-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="fl1"
+                              value=""
+                              placeholder="Email address"
+                              required=""
+                            />
+                            <label for="fl1">Nom de l'étudiant</label>
+                          </div>
+                        </div>
                         <div class="form-group">
                           <div class="form-group">
-                            <label for="tf6">Description</label>
+                            <label for="tf6">Adresses</label>
                             <textarea class="form-control" id="tf6" rows="3"></textarea>
                           </div>
                         </div>
@@ -133,10 +206,10 @@
             </ol>
           </header>
           <nav id="nav-content" class="nav flex-column mt-4">
-            <a href="#base-style" class="nav-link smooth-scroll">Système Educatif</a>
-            <!-- <a href="#labels" class="nav-link smooth-scroll">Domaine</a>
-            <a href="#floating-label" class="nav-link smooth-scroll">Fiche proprement dite</a>
-            <a href="#selects" class="nav-link smooth-scroll">Avis</a> -->
+            <a href="#base-style" class="nav-link smooth-scroll">Ajouter une Université</a>
+            <!-- <a href="#labels" class="nav-link smooth-scroll">Domaine</a> 
+              <a href="#floating-label" class="nav-link smooth-scroll">Fiche proprement dite</a>
+              <a href="#selects" class="nav-link smooth-scroll">Avis</a>  -->
             <!-- <a href="#checkboxes" class="nav-link smooth-scroll">Checkboxes</a> 
               <a href="#radios" class="nav-link smooth-scroll">Radios</a>  -->
           </nav>
@@ -149,24 +222,18 @@
 <script setup>
 import { ref, computed } from 'vue'
 
+const selectedSystem = ref('LMD') // Valeur par défaut
+const selectionnerFacDom = computed(() => {
+  return selectedSystem.value === 'LMD' ? 'Sélectionner une faculté' : 'Sélectionner un domaine'
+})
+const labelNameFacDom = computed(() => {
+  return selectedSystem.value === 'LMD' ? 'Facultés académiques' : 'Domaines académiques'
+})
 defineProps({
   msg: {
     type: String,
     required: true,
   },
-})
-
-const selectedSystem = ref('LMD') // Valeur par défaut
-const selectionnerFacDom = computed(() => {
-  return selectedSystem.value === 'LMD' ? 'Sélectionner une faculté' : 'Sélectionner un domaine'
-})
-
-const labelNamedepFil = computed(() => {
-  return selectedSystem.value === 'LMD' ? 'Nom du département' : 'Nom de la filière'
-})
-
-const labelNameFacDom = computed(() => {
-  return selectedSystem.value === 'LMD' ? 'Facultés académiques' : 'Domaines académiques'
 })
 </script>
 

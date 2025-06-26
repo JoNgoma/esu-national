@@ -25,7 +25,6 @@
                   <legend>Système Educatif</legend>
                   <div id="floating-label" class="card">
                     <div class="card-body">
-                      <form>
                         <fieldset>
                           <div class="form-group">
                             <div class="form-label-group">
@@ -41,10 +40,8 @@
                             </div>
                           </div>
                         </fieldset>
-                      </form>
                     </div>
                     <div class="card-body border-top">
-                      <form>
                         <fieldset>
                           <div class="form-group">
                             <div class="form-group">
@@ -54,7 +51,6 @@
                           </div>
                           <div class="form-group"></div>
                         </fieldset>
-                      </form>
                     </div>
                   </div>
                   <div class="form-actions d-flex justify-content-end">

@@ -11,7 +11,7 @@
                 </li>
               </ol>
             </nav>
-            <h1 class="page-title">Faculté (Domaine)</h1>
+            <h1 class="page-title">Mention</h1>
           </header>
           <div class="page-section">
             <div class="d-xl-none">
@@ -22,7 +22,7 @@
             <div id="base-style" class="card">
               <div class="card-body">
                 <form>
-                  <legend>Système Educatif</legend> 
+                  <legend>Ajouter une mention</legend> 
                       <div class="form-group">
                         <label class="d-block">Choisissez le système éducatif attendu</label>
                         <div class="custom-control custom-control-inline custom-radio">
@@ -58,17 +58,6 @@
                               <label for="fl1">{{ labelName }}</label>
                             </div>
                           </div>
-                        </fieldset>
-                    </div>
-                    <div class="card-body border-top">
-                        <fieldset>
-                          <div class="form-group">
-                            <div class="form-group">
-                              <label for="tf6">Description</label>
-                              <textarea class="form-control" id="tf6" rows="3"></textarea>
-                            </div>
-                          </div>
-                          <div class="form-group"></div>
                         </fieldset>
                     </div>
                   </div>
@@ -117,7 +106,7 @@ defineProps({
 const selectedSystem = ref('LMD') // Valeur par défaut
 
 const labelName = computed(() => {
-  return selectedSystem.value === 'LMD' ? 'Nom de la faculté' : 'Nom du domaine'
+  return selectedSystem.value === 'LMD' ? 'Nom de la mention (PADEM)' : 'Nom de la mention (LMD)'
 })
 </script>
 
