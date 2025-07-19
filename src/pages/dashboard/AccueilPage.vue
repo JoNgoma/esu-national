@@ -6,7 +6,7 @@
             <header class="page-title-bar">
               <div class="d-flex flex-column flex-md-row">
                 <p class="lead">
-                  <span class="font-weight-bold">Hi, Josué.</span> <span class="d-block text-muted"> Bienvenue sur
+                  <span class="font-weight-bold">Hi,  {{userData.firstName}}.</span> <span class="d-block text-muted"> Bienvenue sur
                     la plateforme de l'<strong>Enseignement Supérieur et Universitaire</strong></span>
                 </p>
                 <div class="ml-auto">
@@ -257,10 +257,18 @@
 
 <script setup>
 defineProps({
-  msg: {
-    type: String,
+  // msg: {
+  //   type: String,
+  //   required: true,
+  // },
+  userData: {
+    type: Object,
     required: true,
-  },
+    default: () => ({
+      firstName: 'Incognito',
+
+    })
+  }
 })
 </script>
 

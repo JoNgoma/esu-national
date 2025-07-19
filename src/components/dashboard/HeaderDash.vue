@@ -1,22 +1,35 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import { watch } from 'vue'
 
 const router = useRouter()
 
-function logout() {
-  // 1. Supprimer le token JWT ou les infos utilisateur
-  localStorage.removeItem('token') // ou tout autre clé utilisée
-
-  // 2. Redirection vers la page de connexion
-  router.push('/sign-in')
-}
-
-defineProps({
+const props = defineProps({
   msg: {
     type: String,
-    required: true,
+    required: false,  // Change to false or remove required
+    default: ''       // Add a default value
   },
+  userData: {
+    type: Object,
+    required: true,
+    default: () => ({
+      firstName: '',
+      name: '',
+      email: ''
+    })
+  }
 })
+
+// Add this to debug the incoming userData
+watch(() => props.userData, (newValue) => {
+  console.log('userData in HeaderDash:', newValue)
+}, { immediate: true, deep: true })
+
+function logout() {
+  localStorage.removeItem('token')
+  router.push('/sign-in')
+}
 </script>
 
 <template>
@@ -51,13 +64,16 @@ defineProps({
             <div class="dropdown d-none d-md-flex">
               <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false"><span class="user-avatar user-avatar-md"><img
-                    src="/assets/images/avatars/profile.jpg" alt=""></span> <span
-                  class="account-summary pr-lg-4 d-none d-lg-block"><span class="account-name">Josué Ngoma</span> <span
-                    class="account-description">Développeur Web</span></span></button> <!-- .dropdown-menu -->
+                    src="/assets/images/avatars/profile.jpg" alt=""></span> 
+                <span class="account-summary pr-lg-4 d-none d-lg-block">
+                  <span class="account-name">{{ userData.firstName }} {{ userData.name }}</span> 
+                  <span class="account-description">{{ userData.email || 'incognito@esu.cd' }}</span>
+                </span>
+              </button>
               <div class="dropdown-menu">
                 <div class="dropdown-arrow d-lg-none" x-arrow=""></div>
                 <div class="dropdown-arrow ml-3 d-none d-lg-block"></div>
-                <h6 class="dropdown-header d-none d-md-block d-lg-none">Josué Ngoma</h6><router-link class="dropdown-item"
+                <h6 class="dropdown-header d-none d-md-block d-lg-none">{{ userData.firstName }} {{ userData.name }}</h6><router-link class="dropdown-item"
                   to="/profile"><span class="dropdown-icon oi oi-person"></span> Profile</router-link>
                   <button class="dropdown-item" @click="logout">
                     <span class="dropdown-icon oi oi-account-logout"></span> Déconnexion

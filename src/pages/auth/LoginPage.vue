@@ -74,6 +74,8 @@
   
       // Redirige vers le tableau de bord ou autre page
       router.push('/dashboard')
+      // In the handleLogin function after successful login
+      localStorage.setItem('userEmail', email.value)
     } catch (err) {
       error.value = 'Connexion échouée. Vérifiez vos identifiants.'
       console.error(err)

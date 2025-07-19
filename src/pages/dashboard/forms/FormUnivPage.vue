@@ -18,72 +18,93 @@
                 <button class="btn btn-danger btn-floated" type="button" data-toggle="sidebar"><i
                     class="fa fa-th-list"></i></button>
               </div>
-              <div id="base-style" class="card">
+              <div class="card">
                 <div class="card-body">
-                  <form>
-                      <legend>Système Educatif</legend> 
-                      <div class="form-group">
-                        <label class="d-block">Choisissez le système éducatif existant dans cette université</label>
-                          <div class="custom-control custom-checkbox mb-1">
-                            <input type="checkbox" class="custom-control-input" id="ckb8"> <label class="custom-control-label" for="ckb8">LMD</label>
-                            <div class="text-muted">Description du système LMD</div>
+                  <form @submit.prevent="handleSaveProvince">
+                    <div id="floating-label" class="card">
+                        <div class="card-body">
+                            <fieldset>
+                              <legend id="educate">Système Educatif</legend> 
+                              <div class="form-group">
+                                <div v-if="educativeData.length > 0">
+                                  <label class="d-block">Choisissez le système éducatif existant dans cette université</label>
+                                  <div v-for="(educative, index) in educativeData" :key="educative.id" class="custom-control custom-checkbox mb-1">
+                                    <input 
+                                      type="checkbox" 
+                                      class="custom-control-input" 
+                                      :id="'ckb' + index"
+                                      :value="educative.checked ? `${apiBaseUrl}/api/educative_systemes/${educative.id}` : ''"
+                                      v-model="educative.checked"
+                                    >
+                                    <label class="custom-control-label" :for="'ckb' + index">
+                                      {{ educative.nameEduc }}
+                                    </label>
+                                    <div class="text-muted">{{ educative.descriptEduc }}</div>
+                                  </div>
+                                </div>
+                                <div v-else>
+                                  Aucun système éducatif disponible.
+                                </div>
+
+
+                                <!-- <div class="custom-control custom-control-inline custom-radio">
+                                  <input type="radio" class="custom-control-input" name="rdGroup1" id="rd3" checked> <label
+                                    class="custom-control-label" for="rd3">Autres</label>
+                                </div> -->
+                              </div>
+                            </fieldset>
                           </div>
-                          <div class="custom-control custom-checkbox mb-1">
-                            <input type="checkbox" class="custom-control-input" id="ckb9"> <label class="custom-control-label" for="ckb9">PADEM</label>
-                            <div class="text-muted">Description du système PADEM</div>
-                          </div>
-                        <!-- <div class="custom-control custom-control-inline custom-radio">
-                          <input type="radio" class="custom-control-input" name="rdGroup1" id="rd3" checked> <label
-                            class="custom-control-label" for="rd3">Autres</label>
-                        </div> -->
-                      </div>
+                        </div>
                       <div id="floating-label" class="card">
                         <div class="card-body">
                             <fieldset>
-                              <legend>Coordonnées de l'établissement</legend> 
+                              <legend id ="coordonnees">Coordonnées de l'établissement</legend> 
                               <div class="form-group">
                                 <div class="form-label-group">
-                                  <input type="text" class="form-control" id="fl1" value="" placeholder="Email address"
-                                    required=""> <label for="fl1">Nom de l'Etablissement</label>
+                                  <input type="text" class="form-control" id="univName" v-model="univName" placeholder="Nom de l'Etablissement">
+                                  <label for="univName">Nom de l'Etablissement</label>
+                                  <small class="text-danger" v-if="v$.univName.$error">
+                                    Le nom de l'Etablissement est requis
+                                  </small>
                                 </div>
                               </div>
                               <div class="form-group">
                                 <div class="form-label-group">
-                                  <select class="custom-select" id="fls1" required="">
-                                    <option value=""> Selectionner... </option>
-                                    <option>Kinshasa</option>
-                                    <option>Kongo Central</option>
-                                    <option>Kwango</option>
-                                    <option>Kwilu</option>
-                                    <option>Maï-Ndombe</option>
-                                    <option>Equateur</option>
-                                    <option>Sud-Ubangi</option>
-                                    <option>Nord-Ubangi</option>
-                                    <option>Mongala</option>
-                                    <option>Tshuapa</option>
-                                    <option>Tshopo</option>
-                                    <option>Haut-Uele</option>
-                                    <option>Bas-Uele</option>
-                                    <option>Ituri</option>
-                                    <option>Nord-Kivu</option>
-                                    <option>Sud-Kivu</option>
-                                    <option>Maniema</option>
-                                    <option>Haut-Katanga</option>
-                                    <option>Lualaba</option>
-                                    <option>Haut-Lomami</option>
-                                    <option>Tanganyika</option>
-                                    <option>Lomami</option>
-                                    <option>Kasaï-Oriental</option>
-                                    <option>Sankuru</option>
-                                    <option>Kasaï-Central</option>
-                                    <option>Kasaï</option>
-                                  </select> <label for="fls1">Provinces</label>
+                                  <input type="text" class="form-control" id="postOfficeBox" v-model="postOfficeBox" placeholder="Boite postale"
+                                    > <label for="postOfficeBox">Boite postale</label>
+                                    <small class="text-danger" v-if="v$.postOfficeBox.$error">
+                                    Le boite postale est requise
+                                  </small>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <div v-if="provinceData.length > 0" class="form-label-group">
+                                  <select class="custom-select" id="prov" v-model="oneProvince">
+                                    <option value="">Sélectionner...</option>
+                                    <option
+                                      v-for="province in provinceData"
+                                      :key="province.id"
+                                      :value="`/api/provinces/${province.id}`"
+                                    >
+                                      {{ province.name }}
+                                    </option>
+                                  </select>
+                                  <label for="prov">Provinces</label>
+                                  <small class="text-danger" v-if="v$.oneProvince.$error">
+                                    La province est requise
+                                  </small>
+                                </div>
+                                <div v-else>
+                                  Aucune province disponible.
                                 </div>
                               </div>
                               <div class="form-group">
                                 <div class="form-group">
-                                  <label for="tf6">Adresses</label>
-                                  <textarea class="form-control" id="tf6" rows="3"></textarea>
+                                  <label for="adress">Adresses</label>
+                                  <textarea class="form-control" id="adress" v-model="adress" rows="3"></textarea>
+                                  <small class="text-danger" v-if="v$.adress.$error">
+                                    L'adresse est requise
+                                  </small>
                                 </div>
                               </div> 
                             </fieldset>
@@ -93,18 +114,25 @@
                               <legend></legend> 
                               <div class="form-group">
                                 <div class="form-label-group">
-                                  <input type="number" class="form-control" id="fl2" placeholder="" required=""> <label
-                                    for="fl2">Télephone de l'Etablissement</label>
+                                  <input v-model="phone" type="text" class="form-control" id="phone" placeholder="" > 
+                                  <label for="phone">Télephone de l'Etablissement</label>
+                                  <small class="text-danger" v-if="v$.phone.$error">
+                                    Le numéro est requis
+                                  </small>
                                 </div>
                               </div>
                               <div class="form-group">
                               </div>
                             </fieldset>
                         </div>
-                      </div>
-                      <div class="form-actions d-flex justify-content-end">
-                    <button class="btn btn-primary me-3" type="submit">Soumettre</button>
-                  </div>
+                    </div>
+                    
+                    <div class="form-actions d-flex justify-content-end">
+                      <button class="btn btn-primary me-3" type="submit" :disabled="isLoading" style="min-width: 100px;">
+                        <span v-if="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        <span v-else>Soumettre</span>
+                      </button>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -120,9 +148,9 @@
               </ol>
             </header>
             <nav id="nav-content" class="nav flex-column mt-4">
-              <a href="#base-style" class="nav-link smooth-scroll">Ajouter une Université</a> 
-              <!-- <a href="#labels" class="nav-link smooth-scroll">Domaine</a> 
-              <a href="#floating-label" class="nav-link smooth-scroll">Fiche proprement dite</a>
+              <a href="#educate" class="nav-link smooth-scroll">Système éducatif</a> 
+              <a href="#coordonnees" class="nav-link smooth-scroll">Coordonnées de l'établissement</a> 
+              <!-- <a href="#floating-label" class="nav-link smooth-scroll">Fiche proprement dite</a>
               <a href="#selects" class="nav-link smooth-scroll">Avis</a>  -->
               <!-- <a href="#checkboxes" class="nav-link smooth-scroll">Checkboxes</a> 
               <a href="#radios" class="nav-link smooth-scroll">Radios</a>  -->
@@ -135,12 +163,121 @@
 </template>
 
 <script setup>
-defineProps({
-  msg: {
-    type: String,
+import { ref } from 'vue'
+import axios from 'axios'
+import { useVuelidate } from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
+
+// Add these refs for form data
+const univName = ref('')
+const postOfficeBox = ref('')
+const adress = ref('')
+const phone = ref('')
+const oneProvince = ref('')
+const isLoading = ref(false)
+const error = ref('')
+
+const props = defineProps({
+  educativeData: {
+    type: Array,
     required: true,
+    default: () => []
   },
+  provinceData: {
+    type: Array,
+    required: true,
+    default: () => []
+  },
+  userData: {
+    type: Object,
+    required: true,
+    default: () => ({
+      id: ""
+    })
+  }
 })
+
+// Initialize checked property for each educative system
+props.educativeData.forEach(educative => {
+  educative.checked = false
+})
+
+const rules = {
+  univName: { required },
+  postOfficeBox: { required },
+  adress: { required },
+  phone: { required },
+  oneProvince: { required }
+}
+
+const v$ = useVuelidate(rules, {
+  univName,
+  postOfficeBox,
+  adress,
+  phone,
+  oneProvince
+})
+
+async function handleSaveProvince() {
+  const result = await v$.value.$validate()
+  if (!result) {
+    // Trigger validation on all fields
+    Object.keys(v$.value).forEach(key => {
+      if (typeof v$.value[key].$touch === 'function') {
+        v$.value[key].$touch()
+      }
+    })
+    return
+  }
+
+  isLoading.value = true
+  try {
+    const selectedSystems = props.educativeData
+      .filter(edu => edu.checked)
+      .map(edu => `${apiBaseUrl}/api/educative_systemes/${edu.id}`)
+
+    const response = await axios.post(`${apiBaseUrl}/api/universities`, {
+      name: univName.value,
+      postOfficeBox: postOfficeBox.value,
+      adress: adress.value,
+      phone: phone.value,
+      user: `/api/users/${props.userData.id}`,
+      systeme: selectedSystems,
+      province: oneProvince.value
+    })
+
+    // Reset form after successful submission
+    resetForm()
+    // Show success notification
+    toast.success("Université enregistrée avec succès!")
+    
+  } catch (err) {
+    error.value = 'Échec de l\'enregistrement. Veuillez réessayer.'
+    toast.error("Échec de l'enregistrement. Veuillez réessayer.")
+    console.error(err)
+  } finally {
+    isLoading.value = false
+  }
+}
+
+// Modify resetForm to properly reset all fields
+function resetForm() {
+  univName.value = ''
+  postOfficeBox.value = ''
+  adress.value = ''
+  phone.value = ''
+  oneProvince.value = ''
+  // Reset checkboxes
+  props.educativeData.forEach(educative => {
+    educative.checked = false
+  })
+  // Reset validation state
+  v$.value.$reset()
+}
 </script>
 
 <style scoped>
