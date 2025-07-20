@@ -5,9 +5,10 @@ import { useRoute, useRouter } from 'vue-router';
 defineProps({
   msg: {
     type: String,
-    required: true
+    required: false,
+    default: ''
   }
-});
+})
 
 const route = useRoute();
 const router = useRouter();

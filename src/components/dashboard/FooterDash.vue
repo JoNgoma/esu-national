@@ -2,8 +2,9 @@
 defineProps({
   msg: {
     type: String,
-    required: true,
-  },
+    required: false,
+    default: ''
+  }
 })
 </script>
 

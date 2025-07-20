@@ -45,8 +45,6 @@
                                 <div v-else>
                                   Aucun système éducatif disponible.
                                 </div>
-
-
                                 <!-- <div class="custom-control custom-control-inline custom-radio">
                                   <input type="radio" class="custom-control-input" name="rdGroup1" id="rd3" checked> <label
                                     class="custom-control-label" for="rd3">Autres</label>

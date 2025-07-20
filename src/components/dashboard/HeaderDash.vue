@@ -1,6 +1,5 @@
 <script setup>
 import { useRouter } from 'vue-router'
-import { watch } from 'vue'
 
 const router = useRouter()
 
@@ -21,10 +20,6 @@ const props = defineProps({
   }
 })
 
-// Add this to debug the incoming userData
-watch(() => props.userData, (newValue) => {
-  console.log('userData in HeaderDash:', newValue)
-}, { immediate: true, deep: true })
 
 function logout() {
   localStorage.removeItem('token')

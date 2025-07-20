@@ -12,7 +12,6 @@ const userData = ref({
   name: '',
   email: ''
 })
-
 const educativeData = ref([])
 const provinceData = ref([])
 const token = localStorage.getItem('token')
@@ -99,9 +98,12 @@ onUnmounted(() => {
 <template>
 <div class="app">
   <HeaderDash :userData msg="Dashboard"/>
-  <AssideDash/>
-  <router-view :userData="userData" :educativeData="educativeData" :provinceData="provinceData" />
-  <FooterDash/>
+  <AssideDash msg="Dashboard"/>
+  <router-view 
+  :userData="userData" 
+  :educativeData="educativeData" 
+  :provinceData="provinceData" />
+  <FooterDash  msg="Dashboard"/>
 </div>
 </template>
 
