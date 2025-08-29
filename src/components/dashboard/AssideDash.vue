@@ -71,7 +71,7 @@ function toggleTheme() {
     }
   }
   // Force le re-rendu si nécessaire, bien que le changement de CSS devrait suffire
-  window.location.reload()
+  // window.location.reload()
 }
 </script>
 

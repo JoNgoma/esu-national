@@ -257,10 +257,6 @@
 
 <script setup>
 defineProps({
-  // msg: {
-  //   type: String,
-  //   required: true,
-  // },
   userData: {
     type: Object,
     required: true,
@@ -272,6 +268,3 @@ defineProps({
 })
 </script>
 
-<style scoped>
-
-</style>

@@ -169,12 +169,38 @@
                             <input
                               type="text"
                               class="form-control"
-                              id="fl1"
+                              id="firstname"
                               value=""
-                              placeholder="Email address"
+                              placeholder="Prénom"
                               required=""
                             />
-                            <label for="fl1">Nom de l'étudiant</label>
+                            <label for="firstname">Prénom de l'étudiant</label>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="form-label-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="name"
+                              value=""
+                              placeholder="Nom"
+                              required=""
+                            />
+                            <label for="name">Nom de l'étudiant</label>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="form-label-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="lastname"
+                              value=""
+                              placeholder="Ppostnom"
+                              required=""
+                            />
+                            <label for="lastname">Postnom de l'étudiant</label>
                           </div>
                         </div>
                         <div class="form-group">
@@ -183,7 +209,6 @@
                             <textarea class="form-control" id="tf6" rows="3"></textarea>
                           </div>
                         </div>
-                        <div class="form-group"></div>
                       </fieldset>
                     </div>
                   </div>

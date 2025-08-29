@@ -3,12 +3,8 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const props = defineProps({
-  msg: {
-    type: String,
-    required: false,  // Change to false or remove required
-    default: ''       // Add a default value
-  },
+const { userData } = defineProps({
+
   userData: {
     type: Object,
     required: true,
@@ -20,6 +16,7 @@ const props = defineProps({
   }
 })
 
+// console.log(`l'email est : ${props.userData.email}`)
 
 function logout() {
   localStorage.removeItem('token')
