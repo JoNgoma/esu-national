@@ -14,6 +14,7 @@ const userData = ref({
 })
 const educativeData = ref([])
 const provinceData = ref([])
+const spinneretData = ref([]) // 🔥 ajouté pour spinnerets
 const token = localStorage.getItem('token')
 const userEmail = localStorage.getItem('userEmail')
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
@@ -49,7 +50,6 @@ async function fetchUserData() {
 
       if (authenticatedUser) {
         console.log(`3. l'email est : ${userEmail}`)
-
         userData.value = authenticatedUser
       }
     }
@@ -76,7 +76,7 @@ async function fetchEducative() {
   } catch (error) {
     if (error.response?.status === 401) {
       localStorage.removeItem('token')
-      router.push('/signn-in')
+      router.push('/sign-in')
     }
     console.error('Error fetching educative data:', error)
   }
@@ -101,13 +101,35 @@ async function fetchProvince() {
     console.error('Error fetching province data:', error)
   }
 }
+
+async function fetchSpinnerets() { 
+  try {
+    if (!isTokenValid(token)) return
+    const response = await axios.get(`${apiBaseUrl}/api/spinnerets`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    if (response.data.member && response.data.member.length > 0) {
+      spinneretData.value = response.data.member
+    }
+  } catch (error) {
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token')
+      router.push('/sign-in')
+    }
+    console.error('Error fetching spinneret data:', error)
+  }
+}
+
 let paceScript = null;
 
 onMounted(async () => {
   await Promise.all([
     fetchUserData(),
     fetchEducative(),
-    fetchProvince() 
+    fetchProvince(),
+    fetchSpinnerets() // 🔥 ajouté au montage
   ])
 
   // Crée une nouvelle balise script
@@ -120,15 +142,12 @@ onMounted(async () => {
 });
 
 onUnmounted(() => {
-  // Retire le script lorsque le composant est détruit
   if (paceScript) {
     document.body.removeChild(paceScript);
   }
-  // Pace.js ajoute des éléments au body, il faut aussi les nettoyer
   const paceElements = document.querySelectorAll('.pace');
   paceElements.forEach(el => el.remove());
 });
-
 </script>
 
 <template>
@@ -136,10 +155,11 @@ onUnmounted(() => {
   <HeaderDash :userData msg="Dashboard"/>
   <AssideDash msg="Dashboard"/>
   <router-view 
-  :userData="userData" 
-  :educativeData="educativeData" 
-  :provinceData="provinceData" />
-  <FooterDash  msg="Dashboard"/>
+    :userData="userData" 
+    :educativeData="educativeData" 
+    :provinceData="provinceData"
+    :spinneretData="spinneretData" 
+  />
+  <FooterDash msg="Dashboard"/>
 </div>
 </template>
-

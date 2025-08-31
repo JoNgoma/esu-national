@@ -7,237 +7,134 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item active">
-                  <router-link :to="{ name: 'dashboard' }"
-                    ><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</router-link
-                  >
+                  <router-link :to="{ name: 'dashboard' }">
+                    <i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard
+                  </router-link>
                 </li>
               </ol>
             </nav>
             <h1 class="page-title">Nouvelle Fiche</h1>
           </header>
+
           <div class="page-section">
-            <div class="d-xl-none">
-              <button class="btn btn-danger btn-floated" type="button" data-toggle="sidebar">
-                <i class="fa fa-th-list"></i>
-              </button>
-            </div>
             <div id="base-style" class="card">
               <div class="card-body">
-                <form>
+                <form @submit.prevent="submitForm">
+                  <!-- Système éducatif -->
                   <legend>Système Educatif</legend>
                   <div class="form-group">
                     <label class="d-block">Choisissez le système éducatif attendu</label>
                     <div class="custom-control custom-control-inline custom-radio">
-                      <input
-                        type="radio"
-                        class="custom-control-input"
-                        name="rdGroup1"
-                        id="lmdRadio"
-                        value="PADEM"
-                        v-model="selectedSystem"
-                      />
+                      <input type="radio" class="custom-control-input" id="lmdRadio" value="LMD" v-model="selectedSystem"/>
                       <label class="custom-control-label" for="lmdRadio">LMD</label>
                     </div>
                     <div class="custom-control custom-control-inline custom-radio">
-                      <input
-                        type="radio"
-                        class="custom-control-input"
-                        name="rdGroup1"
-                        id="pademRadio"
-                        value="LMD"
-                        v-model="selectedSystem"
-                      />
+                      <input type="radio" class="custom-control-input" id="pademRadio" value="PADEM" v-model="selectedSystem"/>
                       <label class="custom-control-label" for="pademRadio">PADEM</label>
                     </div>
-                    <!-- <div class="custom-control custom-checkbox mb-1">
-                            <input type="radio" class="custom-control-input" id="ckb8"> <label class="custom-control-label" for="ckb8">LMD</label>
-                            <div class="text-muted">Description du système LMD</div>
-                          </div>
-                          <div class="custom-control custom-checkbox mb-1">
-                            <input type="radio" class="custom-control-input" id="ckb9"> <label class="custom-control-label" for="ckb9">PADEM</label>
-                            <div class="text-muted">Description du système PADEM</div>
-                          </div> -->
                   </div>
+
+                  <!-- Coordonnées établissement -->
                   <div id="floating-label" class="card">
                     <div class="card-body">
                       <fieldset>
                         <legend>Coordonnées de l'établissement</legend>
+
+                        <!-- Province -->
                         <div class="form-group">
                           <div class="form-label-group">
-                            <select class="custom-select" id="fls1" required="">
-                              <option value="">Selectionner...</option>
-                              <option>Kinshasa</option>
-                              <option>Kongo Central</option>
-                              <option>Kwango</option>
-                              <option>Kwilu</option>
-                              <option>Maï-Ndombe</option>
-                              <option>Equateur</option>
-                              <option>Sud-Ubangi</option>
-                              <option>Nord-Ubangi</option>
-                              <option>Mongala</option>
-                              <option>Tshuapa</option>
-                              <option>Tshopo</option>
-                              <option>Haut-Uele</option>
-                              <option>Bas-Uele</option>
-                              <option>Ituri</option>
-                              <option>Nord-Kivu</option>
-                              <option>Sud-Kivu</option>
-                              <option>Maniema</option>
-                              <option>Haut-Katanga</option>
-                              <option>Lualaba</option>
-                              <option>Haut-Lomami</option>
-                              <option>Tanganyika</option>
-                              <option>Lomami</option>
-                              <option>Kasaï-Oriental</option>
-                              <option>Sankuru</option>
-                              <option>Kasaï-Central</option>
-                              <option>Kasaï</option>
+                            <select class="custom-select" v-model="formData.province" @change="onProvinceChange" required>
+                              <option value="">Sélectionner...</option>
+                              <option v-for="prov in provinces" :key="prov['@id']" :value="prov['@id']">{{ prov.name }}</option>
                             </select>
-                            <label for="fls1">Provinces</label>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <div class="form-label-group">
-                            <select class="custom-select" id="fls1" required="">
-                              <option value="">Sélectionner une université...</option>
-                              <option>Université de Kinshasa (UNIKIN)</option>
-                              <option>Université Pédagogique Nationale (UPN)</option>
-                              <option>Université Protestante au Congo (UPC)</option>
-                              <option>Université Catholique du Congo (UCC)</option>
-                              <option>Université de Lubumbashi (UNILU)</option>
-                              <option>Université Kongo (UK)</option>
-                              <option>Université de Kisangani (UNIKIS)</option>
-                              <option>Université de Mbuji-Mayi (UM)</option>
-                              <option>Université de Goma (UNIGOM)</option>
-                              <option>Université Officielle de Bukavu (UOB)</option>
-                              <option>Université de Kolwezi (UNIKOL)</option>
-                              <option>Université de Kindu (UNIKI)</option>
-                              <option>Université de Bandundu (UB)</option>
-                              <option>Université Simon Kimbangu (USK)</option>
-                              <option>Université Notre-Dame du Kasayi (UKA)</option>
-                              <option>Université Libre de Kinshasa (ULK)</option>
-                              <option>Université Adventiste de Lukanga (UNILUK)</option>
-                            </select>
-                            <label for="fls1">Universités de la RDC</label>
+                            <label>Provinces</label>
                           </div>
                         </div>
 
-                        <div class="form-group">
+                        <!-- Université -->
+                        <div class="form-group" v-if="universities.length">
                           <div class="form-label-group">
-                            <select class="custom-select" id="fls1" required>
-                              <option value="">{{ selectionnerFacDom }}...</option>
-                              <option>Sciences</option>
-                              <option>Médecine</option>
-                              <option>Lettres et Sciences Humaines</option>
-                              <option>Droit</option>
-                              <option>Sciences Économiques et de Gestion</option>
-                              <option>Psychologie et des Sciences de l’Éducation</option>
-                              <option>Théologie</option>
-                              <option>Pharmacie</option>
-                              <option>Polytechnique</option>
-                              <option>Agronomie</option>
-                              <option>Sciences Sociales, Administratives et Politiques</option>
-                              <option>Communication</option>
-                              <option>Sciences de l’Information</option>
-                              <option>Sciences Infirmières</option>
-                              <option>Sciences Appliquées</option>
-                              <option>Sciences de la Terre</option>
-                              <option>Sciences de l’Environnement</option>
+                            <select class="custom-select" v-model="formData.university" @change="onUniversityChange" required>
+                              <option value="">Sélectionner une université...</option>
+                              <option v-for="uni in universities" :key="uni['@id']" :value="uni['@id']">{{ uni.name }}</option>
                             </select>
-                            <label for="fls1">{{ labelNameFacDom }}</label>
+                            <label>Universités</label>
                           </div>
                         </div>
-                        <div class="form-group">
+
+                        <!-- Faculté (LMD) ou Domaine (PADEM) -->
+                        <div class="form-group" v-if="facs.length">
                           <div class="form-label-group">
-                            <input
-                              type="number"
-                              class="form-control"
-                              id="fl2"
-                              placeholder=""
-                              required=""
-                            />
-                            <label for="fl2">Nom du Département (Filière)</label>
+                            <select class="custom-select" v-model="formData.faculteOrDomain" @change="onFacOrDomainChange" required>
+                              <option value="">{{ selectionnerFacDom }}</option>
+                              <option v-for="fac in facs" :key="fac['@id']" :value="fac['@id']">{{ fac.name }}</option>
+                            </select>
+                            <label>{{ labelNameFacDom }}</label>
+                          </div>
+                        </div>
+
+                        <!-- Département (LMD) ou Spinneret (PADEM) -->
+                        <div class="form-group" v-if="spinnerets.length">
+                          <div class="form-label-group">
+                            <select class="custom-select" v-model="formData.spinneret" required>
+                              <option value="">Sélectionner...</option>
+                              <option v-for="spin in spinnerets" :key="spin['@id']" :value="spin['@id']">{{ spin.name }}</option>
+                            </select>
+                            <label>{{ selectedSystem === 'LMD' ? 'Départements' : 'Filières' }}</label>
                           </div>
                         </div>
                       </fieldset>
                     </div>
+
+                    <!-- Coordonnées étudiant -->
                     <div class="card-body border-top">
                       <fieldset>
-                        <legend>Coordonnés de l'étudiant</legend>
-                        <div class="form-group">
-                          <div class="form-label-group">
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="firstname"
-                              value=""
-                              placeholder="Prénom"
-                              required=""
-                            />
-                            <label for="firstname">Prénom de l'étudiant</label>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <div class="form-label-group">
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="name"
-                              value=""
-                              placeholder="Nom"
-                              required=""
-                            />
-                            <label for="name">Nom de l'étudiant</label>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <div class="form-label-group">
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="lastname"
-                              value=""
-                              placeholder="Ppostnom"
-                              required=""
-                            />
-                            <label for="lastname">Postnom de l'étudiant</label>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <div class="form-group">
-                            <label for="tf6">Adresses</label>
-                            <textarea class="form-control" id="tf6" rows="3"></textarea>
+                        <legend>Coordonnées de l'étudiant</legend>
+                        <div class="form-group"><div class="form-label-group"><input type="text" class="form-control" v-model="formData.firstName" required /><label>Prénom</label></div></div>
+                        <div class="form-group"><div class="form-label-group"><input type="text" class="form-control" v-model="formData.name" required /><label>Nom</label></div></div>
+                        <div class="form-group"><div class="form-label-group"><input type="text" class="form-control" v-model="formData.lastName" required /><label>Postnom</label></div></div>
+                        <div class="form-group"><div class="form-label-group"><input type="text" class="form-control" v-model="formData.numDiplome" required /><label>Numéro du diplôme</label></div></div>
+                        <div class="form-group"><div class="form-label-group"><input type="text" class="form-control" v-model="formData.scolastic" required /><label>École terminale</label></div></div>
+                        <div class="form-group"><label>Adresse</label><textarea class="form-control" v-model="formData.adress" rows="3"></textarea></div>
+                      </fieldset>
+                    </div>
+
+                    <!-- Promos & Mentions -->
+                    <div class="card-body border-top" v-if="filteredPromos.length && filteredMentions.length">
+                      <fieldset>
+                        <legend>Promotions & Mentions</legend>
+                        <div v-for="promo in filteredPromos" :key="promo['@id']" class="form-group">
+                          <label>{{ promo.name }}</label>
+                          <div class="d-flex">
+                            <!-- Mention -->
+                            <select class="custom-select mr-2" v-model="promoMentions[promo['@id']].mention">
+                              <option value="">Sélectionner une mention...</option>
+                              <option v-for="mention in filteredMentions" :key="mention['@id']" :value="mention['@id']">{{ mention.name }}</option>
+                            </select>
+                            <!-- Année académique -->
+                            <select class="custom-select" v-model="promoMentions[promo['@id']].academicYear">
+                              <option value="">Sélectionner une année académique...</option>
+                              <option v-for="year in academicYears" :key="year" :value="year">{{ year }}</option>
+                            </select>
                           </div>
                         </div>
                       </fieldset>
                     </div>
                   </div>
-                  <div class="form-actions d-flex justify-content-end">
-                    <button class="btn btn-primary me-3" type="submit">Soumettre</button>
+
+                  <!-- Boutons -->
+                  <div class="form-actions d-flex justify-content-end mt-3">
+                    <button class="btn btn-primary" type="submit" :disabled="loading">{{ loading ? 'Enregistrement...' : 'Soumettre' }}</button>
                   </div>
                 </form>
               </div>
             </div>
           </div>
         </div>
+        <!-- Sidebar -->
         <div class="page-sidebar page-sidebar-fixed">
-          <header class="sidebar-header d-xl-none">
-            <ol class="breadcrumb mb-0">
-              <li class="breadcrumb-item">
-                <a class="prevent-default" href="#" onclick="Looper.toggleSidebar()"
-                  ><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Back</a
-                >
-              </li>
-            </ol>
-          </header>
-          <nav id="nav-content" class="nav flex-column mt-4">
-            <a href="#base-style" class="nav-link smooth-scroll">Ajouter une Université</a>
-            <!-- <a href="#labels" class="nav-link smooth-scroll">Domaine</a> 
-              <a href="#floating-label" class="nav-link smooth-scroll">Fiche proprement dite</a>
-              <a href="#selects" class="nav-link smooth-scroll">Avis</a>  -->
-            <!-- <a href="#checkboxes" class="nav-link smooth-scroll">Checkboxes</a> 
-              <a href="#radios" class="nav-link smooth-scroll">Radios</a>  -->
-          </nav>
+          <header class="sidebar-header d-xl-none"><ol class="breadcrumb mb-0"><li class="breadcrumb-item"><a class="prevent-default" href="#" onclick="Looper.toggleSidebar()"><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Back</a></li></ol></header>
+          <nav id="nav-content" class="nav flex-column mt-4"><a href="#base-style" class="nav-link smooth-scroll">Ajouter une Université</a></nav>
         </div>
       </div>
     </div>
@@ -245,21 +142,162 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import axios from 'axios'
 
-const selectedSystem = ref('LMD') // Valeur par défaut
-const selectionnerFacDom = computed(() => {
-  return selectedSystem.value === 'LMD' ? 'Sélectionner une faculté' : 'Sélectionner un domaine'
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL
+
+const selectedSystem = ref('LMD')
+
+// form principal
+const formData = ref({
+  firstName: '',
+  name: '',
+  lastName: '',
+  numDiplome: '',
+  scolastic: '',
+  province: '',
+  university: '',
+  faculteOrDomain: '',
+  spinneret: '',
+  matricule: '',
+  adress: '',
+  isMindInstitution: true,
+  isMindController: true,
+  isMindSecretariate: true,
+  isMindCommission: true
 })
-const labelNameFacDom = computed(() => {
-  return selectedSystem.value === 'LMD' ? 'Facultés académiques' : 'Domaines académiques'
+
+// selections promos & mentions
+const promos = ref([])
+const mentions = ref([])
+const promoMentions = ref({}) // { promoId: { mention: '', academicYear: '' } }
+
+// Options dynamiques
+const provinces = ref([])
+const universities = ref([])
+const facs = ref([])
+const spinnerets = ref([])
+
+// libellés dynamiques
+const selectionnerFacDom = computed(() =>
+  selectedSystem.value === 'PADEM' ? 'Sélectionner une faculté' : 'Sélectionner un domaine'
+)
+const labelNameFacDom = computed(() =>
+  selectedSystem.value === 'PADEM' ? 'Facultés académiques' : 'Domaines académiques'
+)
+
+// filtrage promos/mentions selon le système
+const filteredPromos = computed(() =>
+  promos.value.filter(p => p.systeme === (selectedSystem.value === 'LMD' ? '/api/educative_systemes/2' : '/api/educative_systemes/1'))
+)
+const filteredMentions = computed(() =>
+  mentions.value.filter(m => m.systeme === (selectedSystem.value === 'LMD' ? '/api/educative_systemes/2' : '/api/educative_systemes/1'))
+)
+
+// années académiques
+const academicYears = computed(() => {
+  const years = []
+  const current = new Date().getFullYear()
+  for (let start = 2000; start <= current; start++) {
+    years.push(`${start}-${start + 1}`)
+  }
+  return years
 })
-defineProps({
-  msg: {
-    type: String,
-    required: true,
-  },
+
+const loading = ref(false)
+
+onMounted(async () => {
+  await fetchProvinces()
+  await fetchPromos()
+  await fetchMentions()
+  formData.value.matricule = generateMatricule()
 })
+
+function generateMatricule() {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+  let code = ''
+  for (let i = 0; i < 6; i++) code += chars.charAt(Math.floor(Math.random() * chars.length))
+  return `ETU-${new Date().getFullYear()}-${code}`
+}
+
+async function fetchProvinces() {
+  try {
+    const res = await axios.get(`${apiBaseUrl}/api/provinces`)
+    provinces.value = res.data.member || []
+  } catch (err) { console.error('Erreur fetch provinces:', err) }
+}
+
+async function onProvinceChange() {
+  universities.value = []
+  facs.value = []
+  spinnerets.value = []
+  if (!formData.value.province) return
+  try {
+    const prov = provinces.value.find(p => p['@id'] === formData.value.province)
+    universities.value = prov?.universities || []
+  } catch (err) { console.error('Erreur fetch universities:', err) }
+}
+
+async function onUniversityChange() {
+  facs.value = []
+  spinnerets.value = []
+  if (!formData.value.university) return
+  try {
+    const res = await axios.get(`${apiBaseUrl}${formData.value.university}`)
+    facs.value = selectedSystem.value === 'PADEM' ? res.data.facultes || [] : res.data.domains || []
+  } catch (err) { console.error('Erreur fetch facs:', err) }
+}
+
+async function onFacOrDomainChange() {
+  spinnerets.value = []
+  if (!formData.value.faculteOrDomain) return
+  try {
+    const res = await axios.get(`${apiBaseUrl}${formData.value.faculteOrDomain}`)
+    spinnerets.value = res.data.departements || res.data.spinnerets || []
+  } catch (err) { console.error('Erreur fetch spinnerets:', err) }
+}
+
+async function fetchPromos() {
+  try {
+    const res = await axios.get(`${apiBaseUrl}/api/promos`)
+    promos.value = res.data.member || []
+    promos.value.forEach(p => promoMentions.value[p['@id']] = { mention: '', academicYear: '' })
+  } catch (err) { console.error('Erreur fetch promos:', err) }
+}
+
+async function fetchMentions() {
+  try {
+    const res = await axios.get(`${apiBaseUrl}/api/mentions`)
+    mentions.value = res.data.member || []
+  } catch (err) { console.error('Erreur fetch mentions:', err) }
+}
+
+async function submitForm() {
+  try {
+    loading.value = true
+    const promoMentionsPayload = Object.entries(promoMentions.value)
+      .filter(([_, v]) => v.mention && v.academicYear)
+      .map(([promoId, v]) => ({
+        promo: promoId,
+        mention: v.mention,
+        academicYear: v.academicYear
+      }))
+
+    const payload = {
+      ...formData.value,
+      scolastic: selectedSystem.value,
+      promoMentions: promoMentionsPayload
+    }
+
+    console.log('Payload envoyé :', payload)
+    await axios.post(`${apiBaseUrl}/api/cards`, payload)
+    alert('Fiche enregistrée avec succès ✅')
+  } catch (err) {
+    console.error('Erreur:', err)
+    alert('Erreur lors de l’enregistrement ❌')
+  } finally {
+    loading.value = false
+  }
+}
 </script>
-
-<style scoped></style>
